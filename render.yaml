@@ -10,7 +10,7 @@ services:
     name: mysurvey_project
     runtime: python
     buildCommand: "./build.sh"
-    startCommand: "gunicorn mysurvey_project.asgi:application -k uvicorn.workers.UvicornWorker"
+    startCommand: "gunicorn mysurvey_project.wsgi:application"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
