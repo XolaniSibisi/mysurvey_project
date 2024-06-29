@@ -21,10 +21,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=k@$rds6vaus&%&6ib34dyw+nc!880c8%_4fev3gpoc5%5ph=y'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = ['*']
 
@@ -80,10 +80,7 @@ WSGI_APPLICATION = 'mysurvey_project.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default='postgresql://postgres:postgres@localhost:5432/mysurvey_project',
-        conn_max_age=600
-        )
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
     }
 
 # Password validation
@@ -132,15 +129,6 @@ LOGOUT_REDIRECT_URL = '/'
 
 SURVEY_EMAIL_FROM = ''
 SURVEY_ANONYMOUS_VIEW_LIST = True
-
-# Email settings
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'systemsprogramming95@gmail.com'
-EMAIL_HOST_PASSWORD = 'vpwb zhsl jrzk erwo'
-DEFAULT_FROM_EMAIL = 'systemsprogramming95@gmail.com'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
