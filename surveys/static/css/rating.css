@@ -7,7 +7,7 @@
     height: 50px;
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: url("./images/star-fill.png");
+    background-image: url("../images/star-fill.png");
 }
 
 .rating_inactive {
@@ -15,5 +15,5 @@
     height: 50px;
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: url("./images/star-border.png");
+    background-image: url("../images/star-border.png");
 }
